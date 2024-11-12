@@ -6,19 +6,20 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (input) => {
     if (!input.trim()) return;
 
     const userMessage = { text: input, user: true };
     setMessages([...messages, userMessage]);
-    setInput('');
+    setInput(input);
 
     try {
-      const response = await axios.post('https://pruebasipi1.vercel.app/chat', {
-        query: input
-      });
-    
+      console.log(input)
+           
+      const response = await axios.post('https://back-sipi-nov3.vercel.app/chat', { query: input });
+
+
+      console.log(response)
       // Verificar la estructura de la respuesta
       const botMessageText = response.data?.openai_response?.text || 'Respuesta no disponible';
       const botMessage = { text: botMessageText, user: false };
