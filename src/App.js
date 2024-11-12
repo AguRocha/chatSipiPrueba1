@@ -16,7 +16,7 @@ function App() {
     try {
       console.log(input)
            
-      const response = await axios.post('https://back-sipi-nov3.vercel.app/chat', { query: input });
+      const response = await axios.post('https://pruebasipi1.vercel.app/chat', { query: input });
 
 
       console.log(response)
