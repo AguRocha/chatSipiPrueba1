@@ -15,8 +15,15 @@ function App() {
 
     try {
       console.log(input)
-           
-      const response = await axios.post('https://pruebasipi1.vercel.app/chat', { query: input });
+
+      const config = {
+				headers: {
+				    'Content-Type': 'application/json',
+            'Accept': '*/*'
+				},
+        	validateStatus: () =>{ return true;}
+			} 
+      const response = await axios.post('https://pruebasipi1.vercel.app/chat', { query: input } , config)
 
 
       console.log(response)
